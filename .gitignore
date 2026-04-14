@@ -1,0 +1,18 @@
+# Système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (si utilisé plus tard)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build (si Tailwind CLI ajouté plus tard)
+dist/

@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAZ.PRESTIGE — Collection Réunion</title>
+  <meta name="description" content="KAZ.PRESTIGE — Vêtements premium inspirés de l'île de La Réunion. Découvrez nos collections exclusives." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            kaz: {
+              white:       '#FAFAF8',
+              marble:      '#F3F1EC',
+              'marble-2':  '#EAE7E0',
+              vein:        '#D8D3CB',
+              'gray-light':'#C8C3BB',
+              gray:        '#8E8A83',
+              'gray-dark': '#5A5752',
+              charcoal:    '#2E2C29',
+              black:       '#141310',
+              dark:        '#0E0D0B',
+              'dark-2':    '#1B1A17',
+              'dark-3':    '#252320',
+              gold:        '#C8A96E',
+              'gold-light':'#E2C896',
+              'gold-dark': '#A08040',
+            },
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans:    ['Inter', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css" />
+</head>
+
+<body class="font-sans">
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE LOADER  — fond noir, logo centré grand format
+═══════════════════════════════════════════════════════════ -->
+<div id="page-loader">
+  <div class="flex flex-col items-center gap-8">
+
+    <!-- Logo 3D animé -->
+    <div class="logo-anim-container">
+      <div class="logo-anim-glow"></div>
+      <div class="logo-anim-wrapper">
+        <img
+          src="assets/images/logo.png"
+          alt="KAZ.PRESTIGE"
+          onerror="this.closest('.logo-anim-container').style.display='none';document.getElementById('loader-fallback').style.display='block'"
+        />
+      </div>
+    </div>
+
+    <!-- Fallback texte si pas d'image -->
+    <div id="loader-fallback" style="display:none" class="text-center">
+      <p class="font-display text-3xl tracking-[0.3em] text-white mb-1">KAZ<span class="text-kaz-gold">.</span>PRESTIGE</p>
+      <p class="text-xs tracking-[0.45em] text-kaz-gray uppercase">Réunion</p>
+    </div>
+
+    <!-- Barre de chargement -->
+    <div class="loader-bar"><div class="loader-bar-inner"></div></div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER / NAVBAR
+═══════════════════════════════════════════════════════════ -->
+<header id="navbar" class="navbar at-top">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="flex items-center justify-between gap-4">
+
+      <!-- Logo (adaptatif : blanc sur hero, naturel après scroll) -->
+      <a href="index.html" class="flex-shrink-0 logo-header-link">
+        <img
+          src="assets/images/logo.png"
+          alt="KAZ.PRESTIGE"
+          class="logo-img logo-header"
+          onerror="this.outerHTML='<div><p class=\'font-display text-xl tracking-widest\'>KAZ<span style=\'color:#C8A96E\'>.</span>PRESTIGE</p><p class=\'text-[0.5rem] tracking-[0.5em] text-kaz-gray uppercase -mt-0.5 text-right\'>Réunion</p></div>'"
+        />
+      </a>
+
+      <!-- Nav desktop -->
+      <nav class="hidden lg:flex items-center gap-8">
+
+        <!-- Collections mega menu -->
+        <div class="relative" data-mega="mega-collections">
+          <button class="nav-link flex items-center gap-1.5">
+            Collections
+            <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="mega-collections" class="mega-menu p-8">
+            <div class="grid grid-cols-3 gap-8">
+              <div>
+                <p class="text-[0.62rem] font-semibold tracking-[0.22em] uppercase text-kaz-gold mb-4">Homme</p>
+                <ul class="space-y-2.5">
+                  <li><a href="pages/collections.html" class="mega-link">T-Shirts &amp; Polos</a></li>
+                  <li><a href="pages/collections.html" class="mega-link">Chemises</a></li>
+                  <li><a href="pages/collections.html" class="mega-link">Pantalons</a></li>
+                  <li><a href="pages/collections.html" class="mega-link">Vestes &amp; Blousons</a></li>
+                  <li><a href="pages/collections.html" class="mega-link">Accessoires</a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-[0.62rem] font-semibold tracking-[0.22em] uppercase text-kaz-gold mb-4">Femme</p>
+                <ul class="space-y-2.5">
+                  <li><a href="pages/collections.html" class="mega-link">Robes</a></li>
+                  <li><a href="pages/collections.html" class="mega-link">Tops &amp; T-Shirts</a></li>
+                  <li><a href="pages/collections.html" class="mega-link">Jupes &amp; Pantalons</a></li>
+                  <li><a href="pages/collections.html" class="mega-link">Vestes</a></li>
+                  <li><a href="pages/collections.html" class="mega-link">Accessoires</a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-[0.62rem] font-semibold tracking-[0.22em] uppercase text-kaz-gold mb-4">Nouveautés</p>
+                <div class="bg-kaz-marble rounded p-4 border border-kaz-vein">
+                  <p class="text-xs text-kaz-gray-dark mb-2">Collection Printemps 2025</p>
+                  <p class="font-display text-lg text-kaz-black mb-3">"Tropique Prestige"</p>
+                  <a href="pages/collections.html" class="text-kaz-gold text-xs tracking-widest uppercase flex items-center gap-2">
+                    Découvrir <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="pages/collections.html" class="nav-link">Lookbook</a>
+        <a href="pages/about.html" class="nav-link">À Propos</a>
+        <a href="pages/contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Actions desktop -->
+      <div class="hidden lg:flex items-center gap-1">
+        <button class="w-10 h-10 flex items-center justify-center nav-icon" aria-label="Rechercher">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+        <button class="w-10 h-10 flex items-center justify-center nav-icon relative" aria-label="Favoris">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          <span data-wishlist-count class="hidden absolute -top-0.5 -right-0.5 w-4 h-4 bg-kaz-gold text-kaz-dark text-[0.5rem] font-bold rounded-full items-center justify-center">0</span>
+        </button>
+        <a href="https://instagram.com/" target="_blank" rel="noopener" class="w-10 h-10 flex items-center justify-center nav-icon" aria-label="Instagram">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://wa.me/262XXXXXXXXX" target="_blank" rel="noopener" class="w-10 h-10 flex items-center justify-center nav-icon" aria-label="WhatsApp">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+
+      <!-- Burger mobile -->
+      <button id="menu-open" class="lg:hidden w-10 h-10 flex items-center justify-center nav-icon" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     MOBILE MENU — fond marbre
+═══════════════════════════════════════════════════════════ -->
+<div id="mobile-menu" class="mobile-menu">
+  <div class="flex items-center justify-between px-6 py-5 border-b border-kaz-vein">
+    <!-- Logo dans le menu mobile -->
+    <a href="index.html" class="logo-header-link">
+      <img src="assets/images/logo.png" alt="KAZ.PRESTIGE" class="logo-img"
+        onerror="this.outerHTML='<p class=\'font-display text-xl tracking-widest text-kaz-black\'>KAZ<span style=\'color:#C8A96E\'>.</span>PRESTIGE</p>'" />
+    </a>
+    <button id="menu-close" class="w-10 h-10 flex items-center justify-center text-kaz-charcoal hover:text-kaz-gold transition-colors" aria-label="Fermer">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="flex-1 overflow-y-auto px-6 py-6 space-y-1">
+    <div>
+      <button data-accordion="mob-collections" class="w-full flex items-center justify-between py-4 text-sm font-semibold tracking-[0.15em] uppercase text-kaz-charcoal">
+        Collections
+        <svg data-icon class="w-4 h-4 transition-transform duration-300 text-kaz-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+        </svg>
+      </button>
+      <div id="mob-collections" data-accordion-body style="max-height:0;overflow:hidden;transition:max-height 0.35s ease">
+        <div class="pb-4 pl-4 space-y-1">
+          <p class="text-[0.62rem] tracking-[0.2em] uppercase text-kaz-gold pt-2 pb-1">Homme</p>
+          <a href="pages/collections.html" class="block py-1.5 text-sm text-kaz-gray-dark hover:text-kaz-gold transition-colors">T-Shirts &amp; Polos</a>
+          <a href="pages/collections.html" class="block py-1.5 text-sm text-kaz-gray-dark hover:text-kaz-gold transition-colors">Chemises</a>
+          <a href="pages/collections.html" class="block py-1.5 text-sm text-kaz-gray-dark hover:text-kaz-gold transition-colors">Pantalons</a>
+          <a href="pages/collections.html" class="block py-1.5 text-sm text-kaz-gray-dark hover:text-kaz-gold transition-colors">Vestes &amp; Blousons</a>
+          <p class="text-[0.62rem] tracking-[0.2em] uppercase text-kaz-gold pt-3 pb-1">Femme</p>
+          <a href="pages/collections.html" class="block py-1.5 text-sm text-kaz-gray-dark hover:text-kaz-gold transition-colors">Robes</a>
+          <a href="pages/collections.html" class="block py-1.5 text-sm text-kaz-gray-dark hover:text-kaz-gold transition-colors">Tops &amp; T-Shirts</a>
+          <a href="pages/collections.html" class="block py-1.5 text-sm text-kaz-gray-dark hover:text-kaz-gold transition-colors">Jupes &amp; Pantalons</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-kaz-vein/60"></div>
+    <a href="pages/collections.html" class="block py-4 text-sm font-semibold tracking-[0.15em] uppercase text-kaz-charcoal hover:text-kaz-gold transition-colors">Lookbook</a>
+    <div class="border-t border-kaz-vein/60"></div>
+    <a href="pages/about.html" class="block py-4 text-sm font-semibold tracking-[0.15em] uppercase text-kaz-charcoal hover:text-kaz-gold transition-colors">À Propos</a>
+    <div class="border-t border-kaz-vein/60"></div>
+    <a href="pages/contact.html" class="block py-4 text-sm font-semibold tracking-[0.15em] uppercase text-kaz-charcoal hover:text-kaz-gold transition-colors">Contact</a>
+  </nav>
+
+  <div class="px-6 py-8 border-t border-kaz-vein space-y-5">
+    <div class="flex gap-4">
+      <a href="https://instagram.com/" target="_blank" rel="noopener" class="w-11 h-11 flex items-center justify-center border border-kaz-vein rounded-full text-kaz-gray-dark hover:border-kaz-gold hover:text-kaz-gold transition-all" aria-label="Instagram">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://wa.me/262XXXXXXXXX" target="_blank" rel="noopener" class="w-11 h-11 flex items-center justify-center border border-kaz-vein rounded-full text-kaz-gray-dark hover:border-kaz-gold hover:text-kaz-gold transition-all" aria-label="WhatsApp">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+    <a href="pages/contact.html" class="btn-gold w-full justify-center">Nous contacter</a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO SLIDER — fond sombre (contraste avec le reste)
+═══════════════════════════════════════════════════════════ -->
+<section class="hero-section">
+  <div class="swiper hero-swiper h-full">
+    <div class="swiper-wrapper">
+
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <div class="hero-section relative">
+          <div class="absolute inset-0" style="background:linear-gradient(135deg,#141310 0%,#1B1A17 100%)">
+            <div class="absolute inset-0 opacity-[0.07]" style="background-image:repeating-linear-gradient(45deg,#c8a96e 0,#c8a96e 1px,transparent 0,transparent 50%);background-size:30px 30px;"></div>
+            <!-- Logo en filigrane -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none">
+              <img src="assets/images/logo.png" alt="" class="w-[70vw] max-w-2xl" style="filter:brightness(0) invert(1);" aria-hidden="true"/>
+            </div>
+          </div>
+          <div class="hero-overlay"></div>
+          <div class="hero-content absolute inset-0 flex items-center justify-center text-center px-6">
+            <div>
+              <p class="section-label mb-6 reveal">Nouvelle Collection</p>
+              <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-none mb-6 reveal">
+                Tropique<br /><em class="text-kaz-gold">Prestige</em>
+              </h1>
+              <p class="text-kaz-gray-light text-base md:text-lg max-w-md mx-auto mb-10 reveal leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. L'élégance tropicale réinventée pour l'île de La Réunion.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
+                <a href="pages/collections.html" class="btn-gold">Découvrir la collection</a>
+                <a href="pages/about.html" class="btn-outline">Notre histoire</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <div class="hero-section relative">
+          <div class="absolute inset-0" style="background:linear-gradient(200deg,#1B1A17 0%,#252320 100%)">
+            <div class="absolute inset-0 opacity-[0.06]" style="background-image:radial-gradient(circle,#c8a96e 1px,transparent 1px);background-size:40px 40px;"></div>
+            <div class="absolute inset-0 flex items-center justify-end pr-16 opacity-[0.05] pointer-events-none">
+              <img src="assets/images/logo.png" alt="" class="w-[50vw] max-w-lg" style="filter:brightness(0) invert(1);" aria-hidden="true"/>
+            </div>
+          </div>
+          <div class="hero-overlay"></div>
+          <div class="hero-content absolute inset-0 flex items-end justify-start px-8 md:px-20 pb-24 md:pb-32">
+            <div class="max-w-lg">
+              <p class="section-label mb-4">Homme — SS25</p>
+              <h2 class="font-display text-4xl md:text-6xl font-bold text-white mb-4">L'Art du<br /><em class="text-kaz-gold">Détail</em></h2>
+              <p class="text-kaz-gray-light text-sm md:text-base mb-8 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipiscing elit. Des pièces pensées pour l'homme moderne de l'Océan Indien.</p>
+              <a href="pages/collections.html" class="btn-gold">Collection Homme</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide">
+        <div class="hero-section relative">
+          <div class="absolute inset-0" style="background:linear-gradient(300deg,#141310 0%,#1B1A17 100%)">
+            <div class="absolute inset-0 flex items-center justify-start pl-16 opacity-[0.05] pointer-events-none">
+              <img src="assets/images/logo.png" alt="" class="w-[50vw] max-w-lg" style="filter:brightness(0) invert(1);" aria-hidden="true"/>
+            </div>
+          </div>
+          <div class="hero-overlay"></div>
+          <div class="hero-content absolute inset-0 flex items-end justify-end px-8 md:px-20 pb-24 md:pb-32">
+            <div class="max-w-lg text-right">
+              <p class="section-label mb-4">Femme — SS25</p>
+              <h2 class="font-display text-4xl md:text-6xl font-bold text-white mb-4">Grâce &amp;<br /><em class="text-kaz-gold">Élégance</em></h2>
+              <p class="text-kaz-gray-light text-sm md:text-base mb-8 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipiscing elit. La féminité sublimée par les couleurs et textures de notre île.</p>
+              <a href="pages/collections.html" class="btn-gold">Collection Femme</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="hero-pagination swiper-pagination" style="bottom:2rem;"></div>
+    <div class="hero-prev swiper-button-prev" style="left:2rem;"></div>
+    <div class="hero-next swiper-button-next" style="right:2rem;"></div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2 opacity-50">
+    <p class="text-[0.58rem] tracking-[0.3em] uppercase text-white">Scroll</p>
+    <div class="w-px h-12 bg-gradient-to-b from-white to-transparent animate-pulse"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     MARQUEE TICKER — fond sombre
+═══════════════════════════════════════════════════════════ -->
+<div class="marquee-wrapper py-3">
+  <div class="marquee-track">
+    <div class="flex items-center gap-8 px-4 shrink-0">
+      <span class="text-[0.62rem] font-bold tracking-[0.28em] uppercase text-kaz-gold">KAZ.PRESTIGE</span>
+      <span class="w-1 h-1 rounded-full bg-kaz-gold/40 shrink-0"></span>
+      <span class="text-[0.62rem] tracking-[0.2em] uppercase text-kaz-gray">Nouvelle Collection SS25</span>
+      <span class="w-1 h-1 rounded-full bg-kaz-gold/40 shrink-0"></span>
+      <span class="text-[0.62rem] tracking-[0.2em] uppercase text-kaz-gray">Livraison La Réunion</span>
+      <span class="w-1 h-1 rounded-full bg-kaz-gold/40 shrink-0"></span>
+      <span class="text-[0.62rem] tracking-[0.2em] uppercase text-kaz-gray">Qualité Premium</span>
+      <span class="w-1 h-1 rounded-full bg-kaz-gold/40 shrink-0"></span>
+      <span class="text-[0.62rem] tracking-[0.2em] uppercase text-kaz-gray">Confection Artisanale</span>
+      <span class="w-1 h-1 rounded-full bg-kaz-gold/40 shrink-0"></span>
+      <span class="text-[0.62rem] font-bold tracking-[0.28em] uppercase text-kaz-gold">RÉUNION</span>
+      <span class="w-1 h-1 rounded-full bg-kaz-gold/40 shrink-0"></span>
+    </div>
+    <div class="flex items-center gap-8 px-4 shrink-0" aria-hidden="true">
+      <span class="text-[0.62rem] font-bold tracking-[0.28em] uppercase text-kaz-gold">KAZ.PRESTIGE</span>
+      <span class="w-1 h-1 rounded-full bg-kaz-gold/40 shrink-0"></span>
+      <span class="text-[0.62rem] tracking-[0.2em] uppercase text-kaz-gray">Nouvelle Collection SS25</span>
+      <span class="w-1 h-1 rounded-full bg-kaz-gold/40 shrink-0"></span>
+      <span class="text-[0.62rem] tracking-[0.2em] uppercase text-kaz-gray">Livraison La Réunion</span>
+      <span class="w-1 h-1 rounded-full bg-kaz-gold/40 shrink-0"></span>
+      <span class="text-[0.62rem] tracking-[0.2em] uppercase text-kaz-gray">Qualité Premium</span>
+      <span class="w-1 h-1 rounded-full bg-kaz-gold/40 shrink-0"></span>
+      <span class="text-[0.62rem] tracking-[0.2em] uppercase text-kaz-gray">Confection Artisanale</span>
+      <span class="w-1 h-1 rounded-full bg-kaz-gold/40 shrink-0"></span>
+      <span class="text-[0.62rem] font-bold tracking-[0.28em] uppercase text-kaz-gold">RÉUNION</span>
+      <span class="w-1 h-1 rounded-full bg-kaz-gold/40 shrink-0"></span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CATÉGORIES — fond marbre clair
+═══════════════════════════════════════════════════════════ -->
+<section id="categories" class="py-20 md:py-28 px-5 lg:px-8 max-w-7xl mx-auto">
+  <div class="text-center mb-14">
+    <p class="section-label reveal">Explorer</p>
+    <div class="section-divider-center line-draw"></div>
+    <h2 class="font-display text-3xl md:text-5xl text-kaz-black mt-4 reveal">Nos Catégories</h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 stagger-group">
+
+    <!-- Cat 1 — Grande -->
+    <div class="md:col-span-2 md:row-span-2 stagger-item">
+      <a href="pages/collections.html" class="category-card block h-80 md:h-full min-h-[420px]">
+        <div class="absolute inset-0 w-full h-full" style="background:linear-gradient(135deg,#141310,#1B1A17)">
+          <div class="absolute inset-0 opacity-[0.06]" style="background-image:radial-gradient(ellipse at 30% 70%,#c8a96e,transparent 55%);"></div>
+          <!-- Logo filigrane -->
+          <div class="absolute inset-0 flex items-center justify-center opacity-[0.07] pointer-events-none">
+            <img src="assets/images/logo.png" alt="" class="w-3/4 max-w-xs" style="filter:brightness(0) invert(1);" aria-hidden="true"/>
+          </div>
+        </div>
+        <div class="category-overlay"></div>
+        <div class="absolute bottom-0 left-0 p-8 z-10">
+          <p class="text-[0.62rem] tracking-[0.25em] uppercase text-kaz-gold mb-2">Collection Principale</p>
+          <h3 class="font-display text-3xl md:text-4xl text-white mb-3">Homme</h3>
+          <p class="text-kaz-gray-light text-sm mb-5 max-w-xs leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Des silhouettes affûtées pour l'homme réunionnais.</p>
+          <span class="flex items-center gap-2 text-kaz-gold text-xs tracking-widest uppercase font-semibold">
+            Explorer <svg class="w-4 h-4 cat-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Cat 2 -->
+    <div class="stagger-item">
+      <a href="pages/collections.html" class="category-card block h-60 md:h-full">
+        <div class="absolute inset-0 w-full h-full" style="background:linear-gradient(220deg,#252320,#1B1A17)">
+          <div class="absolute inset-0 opacity-[0.08]" style="background:radial-gradient(ellipse at 70% 30%,#c8a96e,transparent 50%);"></div>
+        </div>
+        <div class="category-overlay"></div>
+        <div class="absolute bottom-0 left-0 p-6 z-10">
+          <p class="text-[0.6rem] tracking-[0.2em] uppercase text-kaz-gold mb-1">Collection</p>
+          <h3 class="font-display text-2xl text-white mb-3">Femme</h3>
+          <span class="flex items-center gap-2 text-kaz-gold text-xs tracking-widest uppercase font-semibold">
+            Explorer <svg class="w-3 h-3 cat-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Cat 3 -->
+    <div class="stagger-item">
+      <a href="pages/collections.html" class="category-card block h-60 md:h-full">
+        <div class="absolute inset-0 w-full h-full" style="background:linear-gradient(315deg,#141310,#2E2C29)">
+          <div class="absolute inset-0 opacity-[0.08]" style="background:radial-gradient(ellipse at 50% 80%,#c8a96e,transparent 50%);"></div>
+        </div>
+        <div class="category-overlay"></div>
+        <div class="absolute bottom-0 left-0 p-6 z-10">
+          <p class="text-[0.6rem] tracking-[0.2em] uppercase text-kaz-gold mb-1">Capsule</p>
+          <h3 class="font-display text-2xl text-white mb-3">Accessoires</h3>
+          <span class="flex items-center gap-2 text-kaz-gold text-xs tracking-widest uppercase font-semibold">
+            Explorer <svg class="w-3 h-3 cat-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     NOUVELLES ARRIVÉES — fond marbre légèrement plus sombre
+═══════════════════════════════════════════════════════════ -->
+<section class="py-20 md:py-28 bg-kaz-marble-2">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <div>
+        <p class="section-label reveal">Derniers Arrivages</p>
+        <div class="section-divider line-draw"></div>
+        <h2 class="font-display text-3xl md:text-4xl text-kaz-black mt-4 reveal">Nouvelles Pièces</h2>
+      </div>
+      <a href="pages/collections.html" class="btn-outline-dark self-start md:self-auto reveal-right">Voir tout</a>
+    </div>
+
+    <div class="swiper arrivals-swiper pb-10">
+      <div class="swiper-wrapper">
+
+        <!-- Produit 1 -->
+        <div class="swiper-slide">
+          <div class="product-card aspect-[3/4] relative group">
+            <div class="img-placeholder w-full h-full" style="background:linear-gradient(160deg,#1B1A17,#141310)">
+              <div class="absolute inset-0 opacity-10" style="background:radial-gradient(ellipse at 40% 60%,#c8a96e,transparent 55%);"></div>
+            </div>
+            <span class="badge-new">Nouveau</span>
+            <button class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-white/80 rounded-full z-10 text-kaz-gray-dark hover:text-kaz-gold transition-colors wishlist-btn" data-wishlist-btn="prod-001" aria-label="Favoris">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </button>
+            <div class="product-overlay"></div>
+            <div class="product-actions"><a href="pages/collections.html" class="btn-gold w-full justify-center text-[0.68rem]">Voir le produit</a></div>
+          </div>
+          <div class="mt-4 px-1">
+            <p class="product-info-label mb-1">Homme</p>
+            <p class="product-info-name">Lorem Ipsum Chemise</p>
+            <p class="product-info-sub mt-1">Lorem ipsum dolor sit</p>
+          </div>
+        </div>
+
+        <!-- Produit 2 -->
+        <div class="swiper-slide">
+          <div class="product-card aspect-[3/4] relative group">
+            <div class="img-placeholder w-full h-full" style="background:linear-gradient(200deg,#252320,#141310)">
+              <div class="absolute inset-0 opacity-10" style="background:radial-gradient(ellipse at 60% 40%,#c8a96e,transparent 50%);"></div>
+            </div>
+            <button class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-white/80 rounded-full z-10 text-kaz-gray-dark hover:text-kaz-gold transition-colors wishlist-btn" data-wishlist-btn="prod-002" aria-label="Favoris">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </button>
+            <div class="product-overlay"></div>
+            <div class="product-actions"><a href="pages/collections.html" class="btn-gold w-full justify-center text-[0.68rem]">Voir le produit</a></div>
+          </div>
+          <div class="mt-4 px-1">
+            <p class="product-info-label mb-1">Femme</p>
+            <p class="product-info-name">Adipiscing Robe Élégante</p>
+            <p class="product-info-sub mt-1">Lorem ipsum dolor sit</p>
+          </div>
+        </div>
+
+        <!-- Produit 3 -->
+        <div class="swiper-slide">
+          <div class="product-card aspect-[3/4] relative group">
+            <div class="img-placeholder w-full h-full" style="background:linear-gradient(140deg,#1B1A17,#252320)">
+              <div class="absolute inset-0 opacity-10" style="background:radial-gradient(ellipse at 30% 70%,#c8a96e,transparent 55%);"></div>
+            </div>
+            <span class="badge-new">Nouveau</span>
+            <button class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-white/80 rounded-full z-10 text-kaz-gray-dark hover:text-kaz-gold transition-colors wishlist-btn" data-wishlist-btn="prod-003" aria-label="Favoris">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </button>
+            <div class="product-overlay"></div>
+            <div class="product-actions"><a href="pages/collections.html" class="btn-gold w-full justify-center text-[0.68rem]">Voir le produit</a></div>
+          </div>
+          <div class="mt-4 px-1">
+            <p class="product-info-label mb-1">Homme</p>
+            <p class="product-info-name">Consectetur Veste Premium</p>
+            <p class="product-info-sub mt-1">Lorem ipsum dolor sit</p>
+          </div>
+        </div>
+
+        <!-- Produit 4 -->
+        <div class="swiper-slide">
+          <div class="product-card aspect-[3/4] relative group">
+            <div class="img-placeholder w-full h-full" style="background:linear-gradient(170deg,#141310,#1B1A17)">
+              <div class="absolute inset-0 opacity-10" style="background:radial-gradient(ellipse at 50% 30%,#c8a96e,transparent 50%);"></div>
+            </div>
+            <button class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-white/80 rounded-full z-10 text-kaz-gray-dark hover:text-kaz-gold transition-colors wishlist-btn" data-wishlist-btn="prod-004" aria-label="Favoris">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </button>
+            <div class="product-overlay"></div>
+            <div class="product-actions"><a href="pages/collections.html" class="btn-gold w-full justify-center text-[0.68rem]">Voir le produit</a></div>
+          </div>
+          <div class="mt-4 px-1">
+            <p class="product-info-label mb-1">Femme</p>
+            <p class="product-info-name">Elit Pantalon Tailleur</p>
+            <p class="product-info-sub mt-1">Lorem ipsum dolor sit</p>
+          </div>
+        </div>
+
+        <!-- Produit 5 -->
+        <div class="swiper-slide">
+          <div class="product-card aspect-[3/4] relative group">
+            <div class="img-placeholder w-full h-full" style="background:linear-gradient(110deg,#252320,#141310)">
+              <div class="absolute inset-0 opacity-10" style="background:radial-gradient(ellipse at 70% 60%,#c8a96e,transparent 50%);"></div>
+            </div>
+            <span class="badge-new">Nouveau</span>
+            <button class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-white/80 rounded-full z-10 text-kaz-gray-dark hover:text-kaz-gold transition-colors wishlist-btn" data-wishlist-btn="prod-005" aria-label="Favoris">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </button>
+            <div class="product-overlay"></div>
+            <div class="product-actions"><a href="pages/collections.html" class="btn-gold w-full justify-center text-[0.68rem]">Voir le produit</a></div>
+          </div>
+          <div class="mt-4 px-1">
+            <p class="product-info-label mb-1">Accessoires</p>
+            <p class="product-info-name">Sed Ut Perspiciatis Cap</p>
+            <p class="product-info-sub mt-1">Lorem ipsum dolor sit</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="arrivals-pagination swiper-pagination mt-6" style="--swiper-pagination-color:#C8A96E;"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     À PROPOS TEASER — fond marbre + logo
+═══════════════════════════════════════════════════════════ -->
+<section class="py-24 md:py-36 px-5 lg:px-8 max-w-7xl mx-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+    <!-- Visuel avec logo -->
+    <div class="relative reveal-left">
+      <div class="aspect-[4/5] overflow-hidden rounded-sm" style="background:linear-gradient(135deg,#1B1A17,#141310)">
+        <!-- Logo centré dans le visuel -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <img src="assets/images/logo.png" alt="KAZ.PRESTIGE" class="w-2/3 max-w-xs opacity-30" style="filter:brightness(0) invert(1);" />
+        </div>
+        <div class="absolute inset-0" style="background:radial-gradient(ellipse at 40% 60%,rgba(200,169,110,0.08),transparent 55%);"></div>
+      </div>
+      <!-- Badge flottant -->
+      <div class="absolute -bottom-6 -right-6 w-28 h-28 bg-kaz-marble border border-kaz-vein rounded-full flex flex-col items-center justify-center text-center shadow-lg">
+        <p class="font-display text-2xl text-kaz-gold font-bold" data-count="2025">0</p>
+        <p class="text-[0.5rem] tracking-[0.15em] uppercase text-kaz-gray-dark leading-tight mt-0.5">Fondée<br/>Réunion</p>
+      </div>
+    </div>
+
+    <!-- Texte -->
+    <div class="reveal-right">
+      <p class="section-label">Notre Marque</p>
+      <div class="section-divider line-draw"></div>
+      <h2 class="font-display text-3xl md:text-5xl text-kaz-black mt-6 mb-6 leading-tight">
+        L'Élégance<br />née de <em class="text-kaz-gold">l'Océan Indien</em>
+      </h2>
+      <p class="text-kaz-gray-dark leading-relaxed mb-5 text-base">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+      </p>
+      <p class="text-kaz-gray leading-relaxed mb-10 text-base">
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
+      </p>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-3 gap-4 mb-10 py-8 border-t border-b border-kaz-vein">
+        <div class="text-center">
+          <p class="font-display text-3xl text-kaz-gold font-bold" data-count="150">0</p>
+          <p class="text-[0.62rem] tracking-[0.15em] uppercase text-kaz-gray mt-1">Pièces Uniques</p>
+        </div>
+        <div class="text-center border-x border-kaz-vein">
+          <p class="font-display text-3xl text-kaz-gold font-bold" data-count="3">0</p>
+          <p class="text-[0.62rem] tracking-[0.15em] uppercase text-kaz-gray mt-1">Collections</p>
+        </div>
+        <div class="text-center">
+          <p class="font-display text-3xl text-kaz-gold font-bold" data-count="100">0</p>
+          <p class="text-[0.62rem] tracking-[0.15em] uppercase text-kaz-gray mt-1">% Local</p>
+        </div>
+      </div>
+
+      <a href="pages/about.html" class="btn-dark">Découvrir notre histoire</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     LOOKBOOK SLIDER — fond sombre
+═══════════════════════════════════════════════════════════ -->
+<section class="py-20 md:py-28 bg-dark-texture overflow-hidden" style="background-color:#0E0D0B">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center mb-14">
+      <p class="section-label reveal">Inspiration</p>
+      <div class="section-divider-center line-draw"></div>
+      <h2 class="font-display text-3xl md:text-5xl text-white mt-4 reveal">Lookbook SS25</h2>
+    </div>
+  </div>
+
+  <div class="swiper lookbook-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="aspect-[16/9] md:aspect-[21/9] overflow-hidden" style="background:linear-gradient(120deg,#1B1A17,#0E0D0B)">
+          <div class="absolute inset-0 flex items-center justify-center opacity-[0.06] pointer-events-none">
+            <img src="assets/images/logo.png" alt="" style="width:60%;filter:brightness(0) invert(1);" aria-hidden="true"/>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <p class="font-display text-4xl md:text-7xl text-white/10 tracking-[0.3em] uppercase">Look 01</p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="aspect-[16/9] md:aspect-[21/9] overflow-hidden" style="background:linear-gradient(200deg,#252320,#141310)">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <p class="font-display text-4xl md:text-7xl text-white/10 tracking-[0.3em] uppercase">Look 02</p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="aspect-[16/9] md:aspect-[21/9] overflow-hidden" style="background:linear-gradient(300deg,#1B1A17,#252320)">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <p class="font-display text-4xl md:text-7xl text-white/10 tracking-[0.3em] uppercase">Look 03</p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="aspect-[16/9] md:aspect-[21/9] overflow-hidden" style="background:linear-gradient(60deg,#141310,#1B1A17)">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <p class="font-display text-4xl md:text-7xl text-white/10 tracking-[0.3em] uppercase">Look 04</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lookbook-pagination swiper-pagination mt-8"></div>
+    <div class="lookbook-prev swiper-button-prev"></div>
+    <div class="lookbook-next swiper-button-next"></div>
+  </div>
+
+  <div class="text-center mt-12">
+    <a href="pages/collections.html" class="btn-outline">Voir le Lookbook complet</a>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     INSTAGRAM — fond marbre
+═══════════════════════════════════════════════════════════ -->
+<section class="py-20 md:py-24 px-5 lg:px-8 max-w-7xl mx-auto">
+  <div class="text-center mb-10">
+    <a href="https://instagram.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-3 group">
+      <svg class="w-7 h-7 text-kaz-gold group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <span class="font-display text-2xl md:text-3xl text-kaz-black group-hover:text-kaz-gold transition-colors">@kaz.prestige</span>
+    </a>
+    <p class="text-kaz-gray text-sm mt-2">Suivez-nous pour les dernières tendances de La Réunion</p>
+  </div>
+
+  <div class="grid grid-cols-3 md:grid-cols-6 gap-2">
+    <a href="https://instagram.com/" target="_blank" rel="noopener" class="insta-card reveal-scale" style="background:linear-gradient(135deg,#1B1A17,#252320)">
+      <div class="absolute inset-0 opacity-15" style="background:radial-gradient(circle at 60% 40%,#c8a96e,transparent 50%);"></div>
+      <div class="insta-overlay"><svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+    </a>
+    <a href="https://instagram.com/" target="_blank" rel="noopener" class="insta-card reveal-scale" style="background:linear-gradient(225deg,#252320,#141310)">
+      <div class="insta-overlay"><svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+    </a>
+    <a href="https://instagram.com/" target="_blank" rel="noopener" class="insta-card reveal-scale" style="background:linear-gradient(315deg,#141310,#2E2C29)">
+      <div class="insta-overlay"><svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+    </a>
+    <a href="https://instagram.com/" target="_blank" rel="noopener" class="insta-card reveal-scale hidden md:block" style="background:linear-gradient(45deg,#252320,#1B1A17)">
+      <div class="insta-overlay"><svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+    </a>
+    <a href="https://instagram.com/" target="_blank" rel="noopener" class="insta-card reveal-scale hidden md:block" style="background:linear-gradient(180deg,#1B1A17,#0E0D0B)">
+      <div class="insta-overlay"><svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+    </a>
+    <a href="https://instagram.com/" target="_blank" rel="noopener" class="insta-card reveal-scale hidden md:block" style="background:linear-gradient(270deg,#252320,#141310)">
+      <div class="insta-overlay"><svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+    </a>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     NEWSLETTER — fond sombre
+═══════════════════════════════════════════════════════════ -->
+<section style="background:#141310;border-top:1px solid rgba(200,169,110,0.1);border-bottom:1px solid rgba(200,169,110,0.1);" class="py-20">
+  <div class="max-w-2xl mx-auto px-5 text-center">
+    <p class="section-label reveal">Restez Informé</p>
+    <div class="section-divider-center line-draw"></div>
+    <h2 class="font-display text-3xl md:text-4xl text-white mt-6 mb-4 reveal">Rejoignez la communauté</h2>
+    <p class="text-kaz-gray mb-10 reveal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Recevez en avant-première nos nouvelles collections et offres exclusives.</p>
+    <form data-newsletter class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto reveal">
+      <input type="email" placeholder="Votre adresse email" required
+        class="newsletter-input flex-1" />
+      <button type="submit" class="btn-gold whitespace-nowrap">S'inscrire</button>
+    </form>
+    <p class="text-kaz-gray text-xs mt-4 reveal">Pas de spam. Désinscription possible à tout moment.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER — fond noir + logo
+═══════════════════════════════════════════════════════════ -->
+<footer style="background:#0E0D0B;" class="pt-16 pb-8 px-5 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Top footer -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b footer-divider">
+
+      <!-- Brand + logo footer -->
+      <div class="lg:col-span-1">
+        <a href="index.html" class="block mb-5">
+          <img src="assets/images/logo.png" alt="KAZ.PRESTIGE" class="logo-img-footer"
+            onerror="this.outerHTML='<div><p class=\'font-display text-2xl tracking-widest text-white\'>KAZ<span style=\'color:#C8A96E\'>.</span>PRESTIGE</p><p class=\'text-[0.5rem] tracking-[0.45em] text-kaz-gray uppercase mt-0.5\'>Réunion</p></div>'" />
+        </a>
+        <p class="text-sm leading-relaxed mb-6" style="color:rgba(200,195,188,0.6);">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. La marque de vêtements premium de l'île de La Réunion.
+        </p>
+        <div class="flex gap-3">
+          <a href="https://instagram.com/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/262XXXXXXXXX" target="_blank" rel="noopener" class="social-btn" aria-label="WhatsApp">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Collections -->
+      <div>
+        <p class="text-[0.62rem] font-semibold tracking-[0.22em] uppercase text-kaz-gold mb-5">Collections</p>
+        <ul class="space-y-3">
+          <li><a href="pages/collections.html" class="footer-link">Nouveautés</a></li>
+          <li><a href="pages/collections.html" class="footer-link">Homme</a></li>
+          <li><a href="pages/collections.html" class="footer-link">Femme</a></li>
+          <li><a href="pages/collections.html" class="footer-link">Accessoires</a></li>
+          <li><a href="pages/collections.html" class="footer-link">Lookbook SS25</a></li>
+        </ul>
+      </div>
+
+      <!-- Informations -->
+      <div>
+        <p class="text-[0.62rem] font-semibold tracking-[0.22em] uppercase text-kaz-gold mb-5">Informations</p>
+        <ul class="space-y-3">
+          <li><a href="pages/about.html" class="footer-link">Notre histoire</a></li>
+          <li><a href="pages/contact.html" class="footer-link">Contact</a></li>
+          <li><a href="#" class="footer-link">Livraison &amp; Retours</a></li>
+          <li><a href="#" class="footer-link">Guide des tailles</a></li>
+          <li><a href="#" class="footer-link">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="text-[0.62rem] font-semibold tracking-[0.22em] uppercase text-kaz-gold mb-5">Nous Contacter</p>
+        <ul class="space-y-5">
+          <li>
+            <a href="https://instagram.com/" target="_blank" rel="noopener" class="flex items-center gap-3 group">
+              <div class="w-10 h-10 flex items-center justify-center rounded-full border border-kaz-gold/20 text-kaz-gold shrink-0">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </div>
+              <div>
+                <p class="text-[0.6rem] text-kaz-gray">Instagram</p>
+                <p class="text-sm group-hover:text-kaz-gold transition-colors" style="color:rgba(200,195,188,0.7)">@kaz.prestige</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/262XXXXXXXXX" target="_blank" rel="noopener" class="flex items-center gap-3 group">
+              <div class="w-10 h-10 flex items-center justify-center rounded-full border border-kaz-gold/20 text-kaz-gold shrink-0">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div>
+                <p class="text-[0.6rem] text-kaz-gray">WhatsApp</p>
+                <p class="text-sm group-hover:text-kaz-gold transition-colors" style="color:rgba(200,195,188,0.7)">+262 XX XX XX XX</p>
+              </div>
+            </a>
+          </li>
+          <li class="flex items-center gap-3">
+            <div class="w-10 h-10 flex items-center justify-center rounded-full border border-kaz-gold/20 text-kaz-gold shrink-0">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-[0.6rem] text-kaz-gray">Localisation</p>
+              <p class="text-sm" style="color:rgba(200,195,188,0.7)">La Réunion (974)</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom footer -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
+      <p class="text-xs tracking-wide" style="color:rgba(200,195,188,0.4)">
+        &copy; 2025 KAZ.PRESTIGE — Tous droits réservés.
+      </p>
+      <div class="flex items-center gap-6">
+        <a href="#" class="footer-link text-[0.7rem]">Mentions légales</a>
+        <a href="#" class="footer-link text-[0.7rem]">Confidentialité</a>
+        <a href="#" class="footer-link text-[0.7rem]">CGV</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     FLOTTANTS
+═══════════════════════════════════════════════════════════ -->
+
+<!-- WhatsApp flottant -->
+<a id="wa-float" href="https://wa.me/262XXXXXXXXX" target="_blank" rel="noopener"
+   aria-label="Contacter sur WhatsApp"
+   style="opacity:0;transform:translateY(20px);position:fixed;bottom:2rem;right:1.5rem;z-index:990;">
+  <div class="flex items-center gap-2.5 bg-[#25D366] text-white pl-4 pr-5 py-3 rounded-full shadow-xl hover:shadow-green-500/30 hover:scale-105 transition-all duration-300">
+    <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="text-sm font-semibold">Nous contacter</span>
+  </div>
+</a>
+
+<!-- Back to top -->
+<button id="back-top" aria-label="Retour en haut"
+  style="opacity:0;pointer-events:none;position:fixed;bottom:2rem;left:1.5rem;z-index:990;"
+  class="w-10 h-10 flex items-center justify-center bg-kaz-marble border border-kaz-vein text-kaz-charcoal hover:bg-kaz-gold hover:text-white hover:border-kaz-gold transition-all duration-300 rounded-full shadow-md">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+  </svg>
+</button>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Patch navbar: classe at-top / scrolled selon scroll -->
+<script>
+  (function() {
+    const nav = document.getElementById('navbar');
+    function updateNav() {
+      if (window.scrollY > 60) {
+        nav.classList.remove('at-top');
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.add('at-top');
+        nav.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  })();
+</script>
+
+</body>
+</html>
